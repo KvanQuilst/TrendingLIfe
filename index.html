@@ -4,21 +4,24 @@
 <head>
   <meta charset="utf-8">
 
-  <title>The HTML5 Herald</title>
+  <title>Watching the world burn</title>
 
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
 
-  <link rel="stylesheet" href="styles.css">
-  <style type="text/css">
-  </style>
-
+  <link rel="stylesheet" href="assets/css/stylesheet.css">
 </head>
 
-<body>
-  Game of Life
-  <canvas id="tutorial" width="150" height="150"></canvas>
-  <script src="js/scripts.js"></script>
+<body id="main">
+  <h1 id="title"> Game of Life </h1>
+  <canvas id="fishbowl" width="500" height="500"></canvas>
+  <script src="assets/js/load.js" defer></script>
+  <script src="assets/js/gol.js"> defer</script>
+
+  <h2 id="fishbowl_list_title">Contents of the bowl</h2>
+  <ol id="fishbowl_list">
+  </ol>
+
 </body>
 </html>
 
