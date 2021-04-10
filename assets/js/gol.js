@@ -1,6 +1,9 @@
-const width = 10;
-const height = 10;
-const pixMod = 50;
+const canvas = document.getElementById('fishbowl');
+const pixMod = 1;
+const width = canvas.width / pixMod;
+const height = canvas.height / pixMod;
+
+var IntervalId;
 
 //export{initialize}; 
 
@@ -16,24 +19,23 @@ function initialize() {
     currGen[5][4] = 1;
     draw();
 
-    run(0);
+    IntervalID = window.setInterval(run, 250);
+    window.setTimeout(stop, 5000);
 }
 
 
 
-function run(x) {
+function run() {
     updateCells();
     draw();
-    if (x < 10) {
-        console.log("Run " + x);
-        window.setTimeout(run, 1000, x+1);
-    }
+}
+
+function stop() {
+    clearInterval(IntervalID);
 }
 
 
 function draw() {
-    const canvas = document.getElementById('fishbowl');
-
     if (canvas.getContext) {
         const ctx = canvas.getContext('2d');
         ctx.clearRect(0, 0, canvas.width, canvas.height);
