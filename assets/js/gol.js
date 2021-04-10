@@ -1,22 +1,40 @@
-const width = 100;
-const height = 100;
-const pixMod = 10;
+const width = 10;
+const height = 10;
+const pixMod = 100;
 
-var currGen = Array(width).fill().map(() => Array(height).fill(0));
-var length = currGen.length;
+//export{initialize}; 
+
+var currGen;
 
 function initialize() {
+    if (currGen == null){
+        currGen  = Array(width).fill().map(() => Array(height).fill(0)); 
+    }
+    // populate currGen
+    currGen[4][4] = 1;
+    currGen[5][5] = 1;
+    currGen[5][3] = 1;
+    draw();
 
+    run();
 }
 
-function generation() {
-    currGen = updateCells();
+
+
+function run() {
+    while (i = 0; i < 2; i++) {
+        updateCells();
+        draw();
+    }
 }
+
 
 function draw() {
-    var canvas = document.getElementById('canvas');
+    const canvas = document.getElementById('fishbowl');
+
     if (canvas.getContext) {
-        var ctx = canvas.getContext('2d');
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         for (i = 0; i < width; i++) {
             for (j = 0; j < height; j++) {
@@ -30,58 +48,55 @@ function draw() {
 
 // updates each cell
 function updateCells() {
-    let nextGen = JSON.parse(JSON.stringify(currGen));
-    for (i = 0; i < width; i++) {
-        for (j=0; j < height; j++) {
-            let neighbors = checkNeighbors(i, j);
+    var nextGen = JSON.parse(JSON.stringify(currGen));
+    for (i = 0; i < height; i++) {
+        for (j = 0; j < width; j++) {
+            var neighbors = checkNeighbors(i, j);
             if (currGen[i][j] == 1) {
-                if (neighbors != 2 || neighbors != 3) {
-                    currGen[i][j] = 0;
+                if (neighbors != 2 && neighbors != 3) {
+                    nextGen[i][j] = 0;
                 }
-            } else {
-                if (neighbors == 3) {
-                    currGen[i][j] = 1;
-                }
+            } else if (neighbors == 3) {
+                nextGen[i][j] = 1;
             }
         }
     }
-    return nextGen;
+    currGen = nextGen; 
 }
 
 // returns count of neighbors
 function checkNeighbors(i, j) {
     let count = 0;
 
-    if (j >= 0) {
-        if (currGen[i-1][j-1] == 1 && i >= 0) {
+    if (j > 0) {
+        if (i > 0 && currGen[i-1][j-1] == 1) {
             count++;
         }
         if (currGen[i][j-1] == 1) {
             count++;
         }
-        if (currGen[i+1][j-1] == 1 && i < length) {
+        if (i < height-1 && currGen[i+1][j-1] == 1) {
             count++;
         }
     }
 
-    if (currGen[i-1][j] == 1 && i >= 0) {
+    if (i > 0 && currGen[i-1][j] == 1) {
         count++;
     }
-    if (currGen[i+1][j] == 1 && i < length) {
+    if (i < height-1 && currGen[i+1][j] == 1) {
         count++;
     }
 
-    if (j < length) {
-        if (currGen[i-1][j+1] == 1) {
+    if (j < width-1) {
+        if (i > 0 && currGen[i-1][j+1] == 1) {
             count++;
         }
         if (currGen[i][j+1] == 1) {
             count++;
         }
-        if (currGen[i+1][j+1] == 1) {
+        if (i < height-1 && currGen[i+1][j+1] == 1) {
             count++; 
         }
     }
-
     return count;
 }

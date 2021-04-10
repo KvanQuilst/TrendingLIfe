@@ -1,8 +1,8 @@
 //const {getTrends} = require('./trends');
-//const {seed, generation} = require('./gol');
+//import {initialize} from "./gol";
 
 
-function initialize(){
+function start(){
     // load the requests
     //var trends = getTrends();      
     /* of form "Title":value, "Traffic": value */
@@ -12,9 +12,12 @@ function initialize(){
         {"Title":"Other Carey", "Traffic":"2000"}] }; 
     // Trends
     loadTrends(trends);
+
+    // start the gol
+    initialize();
     // seed the gol
     //seed(trends);
-    // start the gol
+    
     //generation();
 }
 
@@ -30,4 +33,4 @@ function loadTrends(trends){
     }
 }
 
-initialize();
+start();
