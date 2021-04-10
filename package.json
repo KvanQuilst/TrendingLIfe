@@ -1,0 +1,22 @@
+{
+  "name": "deadwoodcont",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WWUHackathon2021/DeadwoodCont.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WWUHackathon2021/DeadwoodCont/issues"
+  },
+  "homepage": "https://github.com/WWUHackathon2021/DeadwoodCont#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
