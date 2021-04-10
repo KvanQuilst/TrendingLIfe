@@ -6,20 +6,43 @@
 
   <title>Watching the world burn</title>
 
-  <meta name="description" content="The HTML5 Herald">
+  <meta name="description" content="Watching the world burn">
   <meta name="author" content="SitePoint">
 
   <link rel="stylesheet" href="assets/css/stylesheet.css">
 </head>
 
 <body id="main">
-  <h1 id="title"> Game of Life </h1>
+  <h1 id="title" class="text"> Game of Life </h1>
+  <ul id="navbar" class="text"> 
+    <li class="navItems">Night Mode   <button id="nightmode" onclick="nightmodeFunction()" value=0>Switch</button> </li>
+    <li class="navItems">Terms <textarea id="wordChoice"></textarea></li>
+    <li class="navItems">Color Picker <textarea id="colorChoice"> #00FF00</textarea></li>
+    <li> <button id="change"> Change </button></li>
+  </ul>
+
   <canvas id="fishbowl" width="500" height="500"></canvas>
   <script src="assets/js/load.js" defer></script>
   <script src="assets/js/gol.js"> defer</script>
+  <script> function nightmodeFunction(){
+    var button = document.getElementById("nightmode");
+    if (button.value == 0){
+      document.body.style.backgroundColor = "#141414";
+      document.getElementById("colorChoice").innerText = "#006d25";
+      button.value = 1;
+    }
+    else{
+      document.body.style.backgroundColor = "aliceblue";
+      document.getElementById("colorChoice").innerText = "#000000";
+      button.value = 0;
+    }
+    start();
+   
+  }
+  </script>
 
-  <h2 id="fishbowl_list_title">Contents of the bowl</h2>
-  <ol id="fishbowl_list">
+  <h2 id="fishbowl_list_title" class="text">Contents of the bowl</h2>
+  <ol id="fishbowl_list" class="text">
   </ol>
 
 </body>

@@ -6,7 +6,6 @@ function start(){
     // load the requests
     //var trends = getTrends();      
     /* of form "Title":value, "Traffic": value */
-    console.log("Here!")
     var trends = {"list":[
         {"Title":"Mariah Carey", "Traffic":"20000"},
         {"Title":"Other Carey", "Traffic":"2000"}] }; 
@@ -14,7 +13,8 @@ function start(){
     loadTrends(trends);
 
     // start the gol
-    initialize();
+    var color = document.getElementById("colorChoice").innerHTML;
+    initialize(color);
     // seed the gol
     //seed(trends);
     
@@ -27,7 +27,6 @@ function loadTrends(trends){
     for (x in trends.list){
         let i = trends.list[x];
         let node = document.createElement('li')
-        console.log(i);
         node.appendChild(document.createTextNode(i.Title));
         list.appendChild(node);        
     }
