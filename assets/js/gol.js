@@ -1,6 +1,6 @@
 const width = 10;
 const height = 10;
-const pixMod = 100;
+const pixMod = 50;
 
 //export{initialize}; 
 
@@ -11,20 +11,22 @@ function initialize() {
         currGen  = Array(width).fill().map(() => Array(height).fill(0)); 
     }
     // populate currGen
-    currGen[4][4] = 1;
+    currGen[5][6] = 1;
     currGen[5][5] = 1;
-    currGen[5][3] = 1;
+    currGen[5][4] = 1;
     draw();
 
-    run();
+    run(0);
 }
 
 
 
-function run() {
-    while (i = 0; i < 2; i++) {
-        updateCells();
-        draw();
+function run(x) {
+    updateCells();
+    draw();
+    if (x < 10) {
+        console.log("Run " + x);
+        window.setTimeout(run, 1000, x+1);
     }
 }
 
