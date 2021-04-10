@@ -1,5 +1,5 @@
 //import { pixel_coordinate } from "../js/pixel_location";
-const {pixel_coordinate} = require('../js/pixel_location')
+const {pixel_coordinate} = require('../assets/js/pixel_location')
 var assert = require('assert');
 
 

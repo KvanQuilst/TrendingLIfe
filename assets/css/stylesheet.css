@@ -1,0 +1,28 @@
+
+#title{
+    justify-content: center;
+    
+}
+
+#main{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#fishbowl{
+    border: solid;
+    border-width: .1cm .1cm;
+    border-color: black;
+    
+}
+
+#fishbowl_title{
+    
+}
+
+#fishbowl_list{
+    
+}
+
