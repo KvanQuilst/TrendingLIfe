@@ -15,18 +15,21 @@ function initialize() {
     }
     // populate currGen
     var x = 0;
-    /*for (i = 0; i < height; i++) {
-        for (j = x; j < width; j+=2) {
+    for (i = 0; i < height; i++) {
+        for (j = x; j < width; j+=21) {
            currGen[i][j] = 1; 
         }
         x = 1 ? 0 : 1;
     } 
-    */
-    seed(Math.floor(Math.pow(width, 2)*.6));
+    
+    //seed(Math.floor(Math.pow(width, 2)*.6));
     draw();
 
     IntervalID = window.setInterval(run, 10);
-    window.setTimeout(stop, 50000);
+
+    window.setInterval(seed, 15000, Math.floor(Math.pow(width, 2)*.05));
+
+    //window.setTimeout(stop, 50000);
 }
 
 function seed(n){
@@ -56,6 +59,7 @@ function draw() {
     if (canvas.getContext) {
         const ctx = canvas.getContext('2d');
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#00ff00";
         for (i = 0; i < width; i++) {
             for (j = 0; j < height; j++) {
                 if (currGen[i][j] == 1) {

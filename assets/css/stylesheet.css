@@ -8,13 +8,14 @@
     display:flex;
     flex-direction: column;
     align-items: center;
-
+    background-color: #141414;
+    color: darkgray;
 }
 
 #fishbowl{
     border: solid;
     border-width: .1cm .1cm;
-    border-color: black;
+    border-color: darkgray;
     
 }
 
