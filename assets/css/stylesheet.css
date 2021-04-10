@@ -1,3 +1,30 @@
+body{
+    background-color: aliceblue;
+}
+
+.text{
+    color: #74808b;
+}
+
+.navItems{
+    margin:10px;
+}
+
+#navbar{
+    display:flex;
+    flex-direction: row;
+    list-style-type: none;
+}
+
+
+textarea{
+    height: 1.5ch;
+    width: 10ch;
+}
+
+#colorBar{
+    list-style-type: none;
+}
 
 #title{
     justify-content: center;
@@ -14,7 +41,7 @@
 #fishbowl{
     border: solid;
     border-width: .1cm .1cm;
-    border-color: black;
+    border-color: #74808b;
     
 }
 

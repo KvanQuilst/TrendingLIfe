@@ -9,8 +9,9 @@ var seedIntervalID;
 //export{initialize}; 
 
 var currGen;
+var startColor;
 
-function initialize() {
+function initialize(color) {
     if (currGen == null){
         currGen  = Array(width).fill().map(() => Array(height).fill(0)); 
     }
@@ -59,6 +60,7 @@ function draw() {
     if (canvas.getContext) {
         const ctx = canvas.getContext('2d');
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = startColor;
         for (i = 0; i < width; i++) {
             for (j = 0; j < height; j++) {
                 if (currGen[i][j] == 1) {
