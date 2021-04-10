@@ -18,6 +18,7 @@
   "homepage": "https://github.com/WWUHackathon2021/DeadwoodCont#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mocha": "^8.3.2"
+    "mocha": "^8.3.2",
+    "google-trends-api": "^4.9.2"
   }
 }
