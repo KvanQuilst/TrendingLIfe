@@ -14,13 +14,17 @@ function initialize() {
         currGen  = Array(width).fill().map(() => Array(height).fill(0)); 
     }
     // populate currGen
-    currGen[5][6] = 1;
-    currGen[5][5] = 1;
-    currGen[5][4] = 1;
+    var x = 0;
+    for (i = 0; i < height; i++) {
+        for (j = x; j < width; j+=2) {
+           currGen[i][j] = 1; 
+        }
+        x = 1 ? 0 : 1;
+    } 
     draw();
 
     IntervalID = window.setInterval(run, 250);
-    window.setTimeout(stop, 5000);
+    window.setTimeout(stop, 50000);
 }
 
 
