@@ -16,23 +16,15 @@ function initialize() {
 
 function run() {
     for (i = 0; i < 2; i++) {
-        console.log("Gen " + i);
-        generation();
+        updateCells();
+        draw();
     }
 }
 
-function generation() {
-    console.log(currGen[4]);
-    updateCells();
-    console.log(currGen[4]);
-    draw();
-}
 
 function draw() {
-    console.log("Draw");
     const canvas = document.getElementById('canvas');
 
-    
     if (canvas.getContext) {
         const ctx = canvas.getContext('2d');
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -45,29 +37,23 @@ function draw() {
             }
         }
     }
-    console.log("DrawEnd");
 }
 
 // updates each cell
 function updateCells() {
-    console.log("Update");
     var nextGen = JSON.parse(JSON.stringify(currGen));
-    for (i = 0; i < width; i++) {
-        for (j = 0; j < height; j++) {
+    for (i = 0; i < height; i++) {
+        for (j = 0; j < width; j++) {
             var neighbors = checkNeighbors(i, j);
             if (currGen[i][j] == 1) {
-                if (neighbors != 2 || neighbors != 3) {
+                if (neighbors != 2 && neighbors != 3) {
                     nextGen[i][j] = 0;
                 }
-            } else {
-                if (neighbors == 3) {
-                    nextGen[i][j] = 1;
-                }
+            } else if (neighbors == 3) {
+                nextGen[i][j] = 1;
             }
         }
     }
-    console.log(nextGen[4]);
-    console.log("UpdateEnd");
     currGen = nextGen; 
 }
 
@@ -82,29 +68,28 @@ function checkNeighbors(i, j) {
         if (currGen[i][j-1] == 1) {
             count++;
         }
-        if (i < width-1 && currGen[i+1][j-1] == 1) {
+        if (i < height-1 && currGen[i+1][j-1] == 1) {
             count++;
         }
     }
 
-    if (i < 0 && currGen[i-1][j] == 1) {
+    if (i > 0 && currGen[i-1][j] == 1) {
         count++;
     }
-    if (i < width-1 && currGen[i+1][j] == 1) {
+    if (i < height-1 && currGen[i+1][j] == 1) {
         count++;
     }
 
-    if (j < height-1) {
+    if (j < width-1) {
         if (i > 0 && currGen[i-1][j+1] == 1) {
             count++;
         }
         if (currGen[i][j+1] == 1) {
             count++;
         }
-        if (i < width-1 && currGen[i+1][j+1] == 1) {
+        if (i < height-1 && currGen[i+1][j+1] == 1) {
             count++; 
         }
     }
-
     return count;
 }
