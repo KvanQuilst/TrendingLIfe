@@ -18,6 +18,8 @@
     <li class="navItems">Night Mode   <button id="nightmode" onclick="nightmodeFunction()" value=0>Switch</button> </li>
     <li class="navItems">Color Picker <textarea id="colorChoice"> #000000</textarea></li>
     <li class="navItems"><button id="change" onclick="update()"> Change </button></li>
+    <li class="navItems"><button id="fish" onclick="dropFish()"> Drop Fish </button></li>
+    <li class="navItems"><button id="procedural" onclick="changeProcedural()" value=0> Procedural </button></li>
   </ul>
   <ul id="navbar" class="text"> 
     <li class="navChoices"><button id="dailyButton" onclick="" value=0>Daily Trends</button> </li>
@@ -38,7 +40,7 @@
     var button = document.getElementById("nightmode");
     if (button.value == 0){
       document.body.style.backgroundColor = "#141414";
-      document.getElementById("colorChoice").value = "#006d25";
+      document.getElementById("colorChoice").value = "#00FF00";
       button.value = 1;
     }
     else{
@@ -64,6 +66,29 @@
   </script>
   
 
+  <script> function dropFish() {
+      var x = Math.floor(Math.random() * canvas.width);
+      var y = Math.floor(Math.random() * canvas.height);
+
+      makeFish(x, y);
+    }
+  </script>
+
+  <script> function changeProcedural() {
+    var button = document.getElementById("procedural");
+
+    if (button.value == 0) {
+      clearCanvas();
+      procedural(Math.floor(Math.random()*200));
+      button.value = 1;
+    } else {
+      clearCanvas();
+      start();
+      button.value = 0;
+    }
+  }
+
+  </script>
   <h2 id="fishbowl_list_title" class="text">Contents of the bowl</h2>
   <ol id="fishbowl_list" class="text">
   </ol>
