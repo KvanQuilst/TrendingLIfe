@@ -25,11 +25,11 @@
     <li class="navChoices"><button id="dailyButton" onclick="" value=0>Daily Trends</button> </li>
     <li class="navChoices"><button id="totButton" onclick="showTOT()" value=0>Trends over time</button> </li>
   </ul>
-  <ul id="terms">
+  <ul id="terms" class="text">
     <li><textarea id="termsArea" placeholder="Enter interested terms here" ></textarea></li>
     <li><button id="termsButton" onclick="startTOT()">Go</button></li>
   </ul>
-  <p id="dateHolder">Date Placeholder</p>
+  <p id="dateHolder" class="text">Date Placeholder</p>
   
 
   <canvas id="fishbowl" width="500" height="500"></canvas>
@@ -48,7 +48,7 @@
       document.getElementById("colorChoice").value = "#000000";
       button.value = 0;
     }
-    start();
+    resume();
    
   }
   function update(){
