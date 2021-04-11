@@ -5,7 +5,6 @@ const height = canvas.height / pixMod;
 
 var runIntervalId;
 var seedIntervalID;
-
 //export{initialize}; 
 
 var currGen;
@@ -19,7 +18,7 @@ function initialize(color) {
     }
     startColor=color;
     // populate currGen
-   
+    window.clearInterval(seedIntervalID);
     //seed(Math.floor(Math.pow(width, 2)*.6));
     draw();
 

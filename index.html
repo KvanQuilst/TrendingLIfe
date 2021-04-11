@@ -22,7 +22,7 @@
     <li class="navItems"><button id="procedural" onclick="changeProcedural()" value=0> Procedural </button></li>
   </ul>
   <ul id="navbar" class="text"> 
-    <li class="navChoices"><button id="dailyButton" onclick="" value=0>Daily Trends</button> </li>
+    <li class="navChoices"><button id="dailyButton" onclick="stopOT()" value=0>Daily Trends</button> </li>
     <li class="navChoices"><button id="totButton" onclick="showTOT()" value=0>Trends over time</button> </li>
   </ul>
   <ul id="terms" class="text">
@@ -51,11 +51,17 @@
     resume();
    
   }
+  function stopOT(){
+    document.getElementById("terms").style.display="none";
+    document.getElementById("dateHolder").style.display="none";
+    daily()
+  }
+
   function update(){
     resume();
   }
   function showTOT(){
-    console.log("here");
+    console.log("Starting TOT");
     document.getElementById("terms").style.display="flex";
     document.getElementById("dateHolder").style.display="flex";
   }
