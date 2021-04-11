@@ -51,7 +51,7 @@ function run() {
     draw();
 }
 
-function stop() {
+function stopGame() {
     clearInterval(runIntervalID);
     clearInterval(seedIntervalID);
 }

@@ -1,5 +1,6 @@
 //const {getTrends} = require('./trends');
 //import {initialize} from "./gol";
+var intervalID;
 
 
 function start(){
@@ -15,6 +16,9 @@ function start(){
     var trends = getTrends()
     // seed the gol
     //seed(trends);
+    intervalID = window.setInterval(() =>
+        {trends = getTrends();}, 300000);
+    
     resume();
     //generation();
 }
@@ -22,6 +26,11 @@ function start(){
 function resume(){
     var color = document.getElementById("colorChoice").value;
     initialize(color);
+}
+
+function stop() {
+    stopGame();
+    window.clearInterval(intervalID);
 }
 
 function getTrends(){
