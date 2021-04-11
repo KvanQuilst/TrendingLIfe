@@ -19,8 +19,6 @@
     <li class="navItems">Terms <textarea id="wordChoice"></textarea></li>
     <li class="navItems">Color Picker <textarea id="colorChoice"> #000000</textarea></li>
     <li class="navItems"><button id="change" onclick="update()"> Change </button></li>
-    <li class="navItems"><button id="fish" onclick="dropFish()"> Drop Fish </button>
-    <li class="navItems"><button id="procedural" onclick="changeProcedural()" value=0> Procedural </button></li>
   </ul>
 
   <canvas id="fishbowl" width="500" height="500"></canvas>
@@ -31,7 +29,7 @@
     var button = document.getElementById("nightmode");
     if (button.value == 0){
       document.body.style.backgroundColor = "#141414";
-      document.getElementById("colorChoice").value = "#006d25";
+      document.getElementById("colorChoice").value = "#00FF00";
       button.value = 1;
     }
     else{
@@ -46,7 +44,9 @@
     resume();
   }
   </script>
+  
 
+<<<<<<< HEAD
   <script> function dropFish() {
       var x = Math.floor(Math.random() * canvas.width);
       var y = Math.floor(Math.random() * canvas.height);
@@ -70,6 +70,8 @@
   }
 
   </script>
+=======
+>>>>>>> f3a25459435a2e1cdde22d0df8c19881335e7492
   <h2 id="fishbowl_list_title" class="text">Contents of the bowl</h2>
   <ol id="fishbowl_list" class="text">
   </ol>
