@@ -1,6 +1,7 @@
 //const {getTrends} = require('./trends');
 //import {initialize} from "./gol";
-var intervalID;
+var trendIntervalID;
+var seedIntervalID;
 
 
 function daily(){
@@ -8,15 +9,17 @@ function daily(){
     var trends = getTrends()
     // seed the gol
     //seed(trends);
-    intervalID = window.setInterval(() =>
+    clearCanvas();
+    trendIntervalID = window.setInterval(() =>
         {trends = getTrends();}, 300000);
     
-    resume();
+    window.setTimeout(resume, 0);
 }
 
 function overTime(term){
-    console.log("Here!")
-    console.log("Term")
+    console.log("Here!");
+    console.log("Term");
+    clearCanvas();
     var trends = getTotTrends(term)
     resume();
 }
@@ -96,7 +99,7 @@ function loadTrends(trends){
         trafficSum += parseInt(trends[i].Traffic);
     }
     console.log(trafficSum/200)
-    seed(trafficSum/100);
+    seed(trafficSum/5);
     console.log("trends in load trends: ", trends)
     var list = document.getElementById('fishbowl_list');
     list.innerHTML = "";

@@ -39,7 +39,7 @@ function seed(n){
 function overTimeHandler(resp){
     let index = overTimeKeeper % resp.length;
     let curr = resp[index];
-    seed(curr.Traffic);
+    seed(curr.Traffic * 50);
     document.getElementById("dateHolder").innerHTML=curr.Time;
     overTimeKeeper+=1;
 }
