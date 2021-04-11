@@ -17,29 +17,34 @@
   <ul id="navbar" class="text"> 
     <li class="navItems">Night Mode   <button id="nightmode" onclick="nightmodeFunction()" value=0>Switch</button> </li>
     <li class="navItems">Terms <textarea id="wordChoice"></textarea></li>
-    <li class="navItems">Color Picker <textarea id="colorChoice"> #00FF00</textarea></li>
-    <li> <button id="change"> Change </button></li>
+    <li class="navItems">Color Picker <textarea id="colorChoice"> #000000</textarea></li>
+    <li class="navItems"><button id="change" onclick="update()"> Change </button></li>
   </ul>
 
   <canvas id="fishbowl" width="500" height="500"></canvas>
   <script src="assets/js/load.js" defer></script>
   <script src="assets/js/gol.js"> defer</script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script> function nightmodeFunction(){
     var button = document.getElementById("nightmode");
     if (button.value == 0){
       document.body.style.backgroundColor = "#141414";
-      document.getElementById("colorChoice").innerText = "#006d25";
+      document.getElementById("colorChoice").value = "#006d25";
       button.value = 1;
     }
     else{
       document.body.style.backgroundColor = "aliceblue";
-      document.getElementById("colorChoice").innerText = "#000000";
+      document.getElementById("colorChoice").value = "#000000";
       button.value = 0;
     }
     start();
    
   }
+  function update(){
+    start();
+  }
   </script>
+  
 
   <h2 id="fishbowl_list_title" class="text">Contents of the bowl</h2>
   <ol id="fishbowl_list" class="text">

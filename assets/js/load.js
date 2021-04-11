@@ -12,9 +12,11 @@ function start(){
     //loadTrends(trends)
     
     // start the gol
-    initialize();
+    
+    var color = document.getElementById("colorChoice").value;
+    console.log(color)
+    initialize(color);
     var trends = getTrends()
-
     // seed the gol
     //seed(trends);
     

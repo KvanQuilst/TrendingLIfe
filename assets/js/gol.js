@@ -15,6 +15,7 @@ function initialize(color) {
     if (currGen == null){
         currGen  = Array(width).fill().map(() => Array(height).fill(0)); 
     }
+    startColor=color;
     // populate currGen
     var x = 0;
     for (i = 0; i < height; i++) {
