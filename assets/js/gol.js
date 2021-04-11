@@ -3,7 +3,8 @@ const pixMod = 1;
 const width = canvas.width / pixMod;
 const height = canvas.height / pixMod;
 
-var IntervalId;
+var runIntervalId;
+var seedIntervalID;
 
 //export{initialize}; 
 
@@ -15,18 +16,19 @@ function initialize() {
     }
     // populate currGen
     var x = 0;
-    /*for (i = 0; i < height; i++) {
-        for (j = x; j < width; j+=2) {
+    for (i = 0; i < height; i++) {
+        for (j = x; j < width; j+=18) {
            currGen[i][j] = 1; 
         }
         x = 1 ? 0 : 1;
     } 
-    */
-    seed(Math.floor(Math.pow(width, 2)*.6));
+    
+    //seed(Math.floor(Math.pow(width, 2)*.6));
     draw();
 
-    IntervalID = window.setInterval(run, 10);
-    window.setTimeout(stop, 50000);
+    runIntervalID = window.setInterval(run, 10);
+    seedIntervalID = window.setInterval(seed, 15000, 
+        Math.floor(Math.pow(width,2)*.05));
 }
 
 function seed(n){
@@ -48,7 +50,8 @@ function run() {
 }
 
 function stop() {
-    clearInterval(IntervalID);
+    clearInterval(runIntervalID);
+    clearInterval(seedIntervalID);
 }
 
 
