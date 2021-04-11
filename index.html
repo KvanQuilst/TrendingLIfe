@@ -19,6 +19,7 @@
     <li class="navItems">Terms <textarea id="wordChoice"></textarea></li>
     <li class="navItems">Color Picker <textarea id="colorChoice"> #000000</textarea></li>
     <li class="navItems"><button id="change" onclick="update()"> Change </button></li>
+    <li class="navItems"><button id="fish" onclick="dropFish()"> Drop Fish </button>
   </ul>
 
   <canvas id="fishbowl" width="500" height="500"></canvas>
@@ -44,8 +45,14 @@
     resume();
   }
   </script>
-  
 
+  <script> function dropFish() {
+      var x = Math.floor(Math.random() * canvas.width);
+      var y = Math.floor(Math.random() * canvas.height);
+
+      makeFish(x, y);
+    }
+  </script>
   <h2 id="fishbowl_list_title" class="text">Contents of the bowl</h2>
   <ol id="fishbowl_list" class="text">
   </ol>
