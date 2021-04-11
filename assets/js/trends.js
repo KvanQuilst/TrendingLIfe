@@ -32,22 +32,26 @@ function getList() {
             // console.log("title: ", trendData.default.trendingSearchesDays[0].trendingSearches[i].title.query)
             // console.log("traffic: ", trendData.default.trendingSearchesDays[0].trendingSearches[i].formattedTraffic)
             ob = {
-                title: trendData.default.trendingSearchesDays[0].trendingSearches[i].title.query,
-                traffic: trendData.default.trendingSearchesDays[0].trendingSearches[i].formattedTraffic
+                Title: trendData.default.trendingSearchesDays[0].trendingSearches[i].title.query,
+                Traffic: trendData.default.trendingSearchesDays[0].trendingSearches[i].formattedTraffic
             }
             trendList.push(ob);
         }
+        return trendList;
     })
     .catch (function(err){
         console.error('Oh no there was an error', err);
     })
 }
 
-async function returnList() {
+
+
+async function loadTrends() {
     const list = await getList();
     console.log(list)
     return list;
 }
 
-exports.returnList = returnList;
+
+exports.loadTrends = loadTrends;
 

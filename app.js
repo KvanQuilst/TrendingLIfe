@@ -1,4 +1,5 @@
 const express = require('express');
+const trendsRouter = require('./routes/getTrends')
 
 const app = express();
 const http = require('http');
@@ -8,8 +9,15 @@ const port = 3000;
 
 app.use('/assets', express.static('assets'))
 
+app.use('/trends', trendsRouter);
+
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
+})
+
+app.get('/trends', function (req, res) {
+  console.log('/trends')
+  res.send('/trends')
 })
 
 app.listen(port, hostname, () => {
