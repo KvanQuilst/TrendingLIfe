@@ -18,15 +18,17 @@ function initialize(color) {
     startColor=color;
     // populate currGen
     var x = 0;
-    for (i = 0; i < height; i++) {
+    /*for (i = 0; i < height; i++) {
         for (j = x; j < width; j+=18) {
            currGen[i][j] = 1; 
         }
         x = 1 ? 0 : 1;
     } 
-    
+   */ 
     //seed(Math.floor(Math.pow(width, 2)*.6));
     draw();
+
+    window.setTimeout(makeFish, 2000, 10, 10);
 
     runIntervalID = window.setInterval(run, 10);
     //seedIntervalID = window.setInterval(seed, 15000, 500);
@@ -124,4 +126,34 @@ function checkNeighbors(i, j) {
         }
     }
     return count;
+}
+
+function makeFish(x, y) {
+    var xMax = x+35;
+    var yMax = y+60;
+
+    if (xMax >= width || yMax >= height) {
+        return;
+    }
+
+    console.log("Make fish");
+    var fish = [
+        [0,0,0,0,0,0,1,1,0,0,0,0],
+        [1,0,0,0,0,1,1,1,1,0,0,0],
+        [1,1,0,1,1,1,1,1,0,1,1,0],
+        [1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,1,0,1,1,1,1,1,1,1,1,0],
+        [1,0,0,0,0,1,1,1,1,0,0,0],
+        [0,0,0,0,0,0,1,0,0,0,0,0],
+    ];
+
+    for (i = x; i < xMax; i++) {
+        for (j = y; j < yMax; j++) {
+            if (fish[Math.floor((i-x)/5)][Math.floor((j-y)/5)] == 1) {
+                    currGen[i][j] = 1;
+            } else {
+                currGen[i][j] = 0;
+            }
+        }
+    } 
 }
