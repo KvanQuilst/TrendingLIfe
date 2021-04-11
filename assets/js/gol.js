@@ -29,8 +29,7 @@ function initialize(color) {
     draw();
 
     runIntervalID = window.setInterval(run, 10);
-    seedIntervalID = window.setInterval(seed, 15000, 
-        Math.floor(Math.pow(width,2)*.05));
+    //seedIntervalID = window.setInterval(seed, 15000, 500);
 }
 
 function seed(n){
@@ -51,7 +50,7 @@ function run() {
     draw();
 }
 
-function stop() {
+function stopGame() {
     clearInterval(runIntervalID);
     clearInterval(seedIntervalID);
 }
