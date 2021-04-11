@@ -11,6 +11,8 @@ var seedIntervalID;
 var currGen;
 var startColor;
 
+var overTimeKeeper;
+
 function initialize(color) {
     if (currGen == null){
         currGen  = Array(width).fill().map(() => Array(height).fill(0)); 
@@ -42,6 +44,19 @@ function seed(n){
             n--;
         }
     }
+}
+function overTimeHandler(resp){
+    let index = overTimeKeeper % resp.length;
+    let curr = resp[index];
+    seed(curr.Traffic);
+    document.getElementById("dateHolder").innerHTML=curr.Time;
+    overTimeKeeper+=1;
+}
+
+function seedOverTime(resp){
+    overTimeKeeper = 0;
+    seedIntervalID = window.setInterval(overTimeHandler, 1000, 
+        resp);
 }
 
 
