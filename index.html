@@ -20,6 +20,7 @@
     <li class="navItems">Color Picker <textarea id="colorChoice"> #000000</textarea></li>
     <li class="navItems"><button id="change" onclick="update()"> Change </button></li>
     <li class="navItems"><button id="fish" onclick="dropFish()"> Drop Fish </button>
+    <li class="navItems"><button id="procedural" onclick="changeProcedural()" value=0> Procedural </button></li>
   </ul>
 
   <canvas id="fishbowl" width="500" height="500"></canvas>
@@ -52,6 +53,20 @@
 
       makeFish(x, y);
     }
+  </script>
+
+  <script> function changeProcedural() {
+    var button = document.getElementById("procedural");
+
+    if (button.value == 0) {
+      procedural(Math.floor(Math.random()*200));
+      button.value = 1;
+    } else {
+      start();
+      button.value = 0;
+    }
+  }
+
   </script>
   <h2 id="fishbowl_list_title" class="text">Contents of the bowl</h2>
   <ol id="fishbowl_list" class="text">
