@@ -39,6 +39,7 @@
       document.getElementById("colorChoice").value = "#000000";
       button.value = 0;
     }
+    clearCanvas();
     start();
    
   }
@@ -49,8 +50,8 @@
   
 
   <script> function dropFish() {
-      var x = Math.floor(Math.random() * canvas.width);
-      var y = Math.floor(Math.random() * canvas.height);
+      var x = Math.floor(Math.random() * canvas.width-65);
+      var y = Math.floor(Math.random() * canvas.height-65);
 
       makeFish(x, y);
     }
@@ -61,7 +62,7 @@
 
     if (button.value == 0) {
       clearCanvas();
-      procedural(Math.floor(Math.random()*200));
+      procedural(Math.floor(Math.random()*200 + 2));
       button.value = 1;
     } else {
       clearCanvas();
