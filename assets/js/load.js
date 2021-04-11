@@ -98,8 +98,12 @@ function loadTrends(trends){
     for (let i = 0; i < trends.length; i++) {
         trafficSum += parseInt(trends[i].Traffic);
     }
-    console.log(trafficSum/200)
-    seed(trafficSum/5);
+    let s = trafficSum / 5;
+    if (s > 100000) {
+        s = 100000;
+    }
+    console.log(s)
+    seed(s);
     console.log("trends in load trends: ", trends)
     var list = document.getElementById('fishbowl_list');
     list.innerHTML = "";
