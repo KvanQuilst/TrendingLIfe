@@ -26,7 +26,7 @@ function getList() {
         trendData = JSON.parse(results);
         // console.log(JSON.stringify(JSON.parse(results), null, 2));
         // console.log(trendData.default.trendingSearchesDays[0])
-
+        trendList = []
         // console.log("trending searches: ", trendData.default.trendingSearchesDays[0].trendingSearches[0].title.query)
         for (var i = 0; i < trendData.default.trendingSearchesDays[0].trendingSearches.length; i++) {
             // console.log("title: ", trendData.default.trendingSearchesDays[0].trendingSearches[i].title.query)

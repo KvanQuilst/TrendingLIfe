@@ -13,16 +13,19 @@ function start(){
     //loadTrends(trends)
     
     // start the gol
-    
-    var color = document.getElementById("colorChoice").value;
-    console.log(color)
-    initialize(color);
     var trends = getTrends()
     // seed the gol
     //seed(trends);
     intervalID = window.setInterval(() =>
         {trends = getTrends();}, 300000);
+    
+    resume();
     //generation();
+}
+
+function resume(){
+    var color = document.getElementById("colorChoice").value;
+    initialize(color);
 }
 
 function stop() {
@@ -70,6 +73,7 @@ function loadTrends(trends){
     trends = processTraffic(trends);
     console.log("trends in load trends: ", trends)
     var list = document.getElementById('fishbowl_list');
+    list.innerHTML = "";
     for (let x = 0; x < trends.length; x++) {
         let i = trends[x];
         let node = document.createElement('li')
