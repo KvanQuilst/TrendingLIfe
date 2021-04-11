@@ -18,19 +18,19 @@ function initialize(color) {
     startColor=color;
     // populate currGen
     var x = 0;
-    for (i = 0; i < height; i++) {
+    /*for (i = 0; i < height; i++) {
         for (j = x; j < width; j+=18) {
            currGen[i][j] = 1; 
         }
         x = 1 ? 0 : 1;
-    } 
+    } */
     
     //seed(Math.floor(Math.pow(width, 2)*.6));
     draw();
 
     runIntervalID = window.setInterval(run, 10);
-    seedIntervalID = window.setInterval(seed, 15000, 
-        Math.floor(Math.pow(width,2)*.05));
+    //seedIntervalID = window.setInterval(seed, 15000, 
+    //    Math.floor(Math.pow(width,2)*.05));
 }
 
 function seed(n){

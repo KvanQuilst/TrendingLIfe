@@ -32,10 +32,10 @@ function getTrends(){
         type: "GET",
         dataType: 'json',
         success: function(resp){
-             console.log(resp);
-             console.log("Hello");
-             loadTrends(resp);
-             seed(500);
+            console.log(resp);
+            console.log("Hello");
+            loadTrends(resp);
+
          }
     }).done(function(response) {
         d.resolve(response);
@@ -45,16 +45,17 @@ function getTrends(){
 
 function processTraffic(trends) {
     for(let i = 0; i < trends.length; i++) {
-        let procTrend = trends[i].Traffic.slice(0,-2);
-        /*let factor = procTrend[procTrend.length - 1];
+        let procTrend = trends[i].Traffic.slice(0,-1);
+        let factor = procTrend[procTrend.length - 1];
         if (factor == 'M') {
             console.log("here");
-
-            procTrend + '000000'
+            procTrend = trends[i].Traffic.slice(0,-2);   
+            procTrend += '000000'
         } else if (factor == 'K') {
             console.log("here");
-            procTrend + '000'
-        }*/
+            procTrend = trends[i].Traffic.slice(0,-2);
+            procTrend += '000'
+        }
         trends[i].Traffic = procTrend;
     }
     return trends;
@@ -62,6 +63,12 @@ function processTraffic(trends) {
 
 function loadTrends(trends){
     trends = processTraffic(trends);
+    trafficSum = 0;
+    for (let i = 0; i < trends.length; i++) {
+        trafficSum += parseInt(trends[i].Traffic);
+    }
+    console.log(trafficSum/200)
+    seed(trafficSum/100);
     console.log("trends in load trends: ", trends)
     var list = document.getElementById('fishbowl_list');
     list.innerHTML = "";
