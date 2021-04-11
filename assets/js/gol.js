@@ -5,11 +5,12 @@ const height = canvas.height / pixMod;
 
 var runIntervalId;
 var seedIntervalID;
-
 //export{initialize}; 
 
 var currGen;
 var startColor;
+
+var overTimeKeeper;
 
 function initialize(color) {
     if (currGen == null){
@@ -17,7 +18,7 @@ function initialize(color) {
     }
     startColor=color;
     // populate currGen
-   
+    window.clearInterval(seedIntervalID);
     //seed(Math.floor(Math.pow(width, 2)*.6));
     draw();
 
@@ -34,6 +35,19 @@ function seed(n){
             n--;
         }
     }
+}
+function overTimeHandler(resp){
+    let index = overTimeKeeper % resp.length;
+    let curr = resp[index];
+    seed(curr.Traffic);
+    document.getElementById("dateHolder").innerHTML=curr.Time;
+    overTimeKeeper+=1;
+}
+
+function seedOverTime(resp){
+    overTimeKeeper = 0;
+    seedIntervalID = window.setInterval(overTimeHandler, 1000, 
+        resp);
 }
 
 function run() {

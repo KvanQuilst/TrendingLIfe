@@ -16,12 +16,21 @@
   <h1 id="title" class="text"> Game of Life </h1>
   <ul id="navbar" class="text"> 
     <li class="navItems">Night Mode   <button id="nightmode" onclick="nightmodeFunction()" value=0>Switch</button> </li>
-    <li class="navItems">Terms <textarea id="wordChoice"></textarea></li>
     <li class="navItems">Color Picker <textarea id="colorChoice"> #000000</textarea></li>
     <li class="navItems"><button id="change" onclick="update()"> Change </button></li>
     <li class="navItems"><button id="fish" onclick="dropFish()"> Drop Fish </button></li>
     <li class="navItems"><button id="procedural" onclick="changeProcedural()" value=0> Procedural </button></li>
   </ul>
+  <ul id="navbar" class="text"> 
+    <li class="navChoices"><button id="dailyButton" onclick="stopOT()" value=0>Daily Trends</button> </li>
+    <li class="navChoices"><button id="totButton" onclick="showTOT()" value=0>Trends over time</button> </li>
+  </ul>
+  <ul id="terms" class="text">
+    <li><textarea id="termsArea" placeholder="Enter interested terms here" ></textarea></li>
+    <li><button id="termsButton" onclick="startTOT()">Go</button></li>
+  </ul>
+  <p id="dateHolder" class="text">Date Placeholder</p>
+  
 
   <canvas id="fishbowl" width="500" height="500"></canvas>
   <script src="assets/js/load.js" defer></script>
@@ -43,8 +52,23 @@
     start();
    
   }
+  function stopOT(){
+    document.getElementById("terms").style.display="none";
+    document.getElementById("dateHolder").style.display="none";
+    daily()
+  }
+
   function update(){
     resume();
+  }
+  function showTOT(){
+    console.log("Starting TOT");
+    document.getElementById("terms").style.display="flex";
+    document.getElementById("dateHolder").style.display="flex";
+  }
+  function startTOT(){
+    var terms = document.getElementById("termsArea").value;
+    overTime(terms);
   }
   </script>
   

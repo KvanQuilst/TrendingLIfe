@@ -7,7 +7,7 @@ body{
 }
 
 .navItems{
-    margin:10px;
+    margin-right:10px;
 }
 
 #navbar{
@@ -16,6 +16,26 @@ body{
     list-style-type: none;
 }
 
+.navChoices{
+    margin-right:10px;
+}
+
+#dateHolder{
+    display:none;
+}
+
+#terms{
+    display:none;
+    flex-direction: row;
+    justify-content: center;
+    list-style-type: none;
+}
+#termsArea{
+    resize: none;
+    height: 20px;
+    width: 200px;
+    margin-bottom: 10px;
+}
 
 textarea{
     height: 1.5ch;
