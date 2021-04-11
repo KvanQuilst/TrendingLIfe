@@ -59,9 +59,11 @@
     var button = document.getElementById("procedural");
 
     if (button.value == 0) {
+      clearCanvas();
       procedural(Math.floor(Math.random()*200));
       button.value = 1;
     } else {
+      clearCanvas();
       start();
       button.value = 0;
     }

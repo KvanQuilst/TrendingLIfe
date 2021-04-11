@@ -13,7 +13,7 @@ var startColor;
 
 function initialize(color) {
     if (currGen == null){
-        currGen  = Array(width).fill().map(() => Array(height).fill(0)); 
+        clearCanvas();
     }
     startColor=color;
     // populate currGen
@@ -128,6 +128,10 @@ function procedural(val) {
         }
         x = 1 ? 0 : 1;
     } 
+}
+
+function clearCanvas() {
+    currGen  = Array(width).fill().map(() => Array(height).fill(0)); 
 }
 
 function makeFish(x, y) {
